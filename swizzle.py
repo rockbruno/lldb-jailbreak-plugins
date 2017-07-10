@@ -66,7 +66,6 @@ def generate_script(options):
     if options.count > 0:
         emptyArgs = get_swizzle_args(options.count) + ")"
     command_script += r'''
-                    @import com.saurik.substrate.MS;
                     BOOL (*'''+ pointer_name +''')(id self, SEL _cmd'''+ emptyArgs +''';
                     BOOL (^'''+ swizzled_name +''')(id, SEL'''+ ("id" * options.count) +''') = ^(id self, SEL _cmd'''+ emptyArgs +''' {
                         '''+ options.method +'''
